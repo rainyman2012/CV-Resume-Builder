@@ -3,6 +3,8 @@
 # Edit at https://www.gitignore.io/?templates=web,node,django
 
 ### Django ###
+#
+static
 staticfiles
 .vscode
 *.log

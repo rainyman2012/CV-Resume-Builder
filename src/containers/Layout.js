@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter, Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { changeColor, postGetAll } from "../store/actions/general";
+import { changeColor, resumesGetAll } from "../store/actions/general";
 import { Layout, message } from "antd";
 import "../stylesheets/layout.css";
 import { Lang as T } from "../languages";
@@ -40,8 +40,9 @@ class CustomLayout extends React.Component {
   };
 
   componentDidMount() {
-    this.props.getAllPosts(this.props.language);
+    this.props.getAllResumes(this.props.language);
     document.body.style.fontFamily = "Amiri";
+    document.body.style.color = "#030405";
     let htmlElement = document.getElementsByTagName("html")[0];
     htmlElement.dir = "rtl";
   }
@@ -111,7 +112,6 @@ class CustomLayout extends React.Component {
           <Content
             className="content_basic"
             style={{
-              margin: "24px 16px 0",
               overflow: "initial"
             }}
           >
@@ -144,7 +144,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     changeColor: color => dispatch(changeColor(color)),
-    getAllPosts: lang => dispatch(postGetAll(lang))
+    getAllResumes: lang => dispatch(resumesGetAll(lang))
   };
 };
 

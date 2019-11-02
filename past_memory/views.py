@@ -9,10 +9,10 @@ from rest_framework.status import (
 )
 
 from past_memory.serializers import (
-    PostSerializer,
+    ResumeSerializer,
     PictureSerializer,
 )
-from .models import Post, Picture
+from .models import Resume, Picture
 import io
 from rest_framework import generics
 from rest_framework.renderers import JSONRenderer
@@ -24,13 +24,16 @@ from django.db.models import Q
 import random
 
 
-class PostListView(generics.ListAPIView):
-    serializer_class = PostSerializer
-    # queryset = Post.objects.all()
+class ResumeListView(generics.ListAPIView):
+    serializer_class = ResumeSerializer
 
     def get_queryset(self):
+        return Resume.objects.all()
+
+    def get(self, request, *args, **kwargs):
         lang = self.kwargs.get('lang', 'fa')
         translation.activate(lang)
-        posts = Post.objects.all()
-        translation.activate("en")
-        return posts
+        Resumes = self.list(request, *args, **kwargs)
+
+        translation.activate('en')
+        return Resumes

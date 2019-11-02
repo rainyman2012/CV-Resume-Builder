@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Picture
+from .models import Resume, Picture, Music, Education, Skill, Experience
 from modeltranslation.admin import TranslationAdmin
 
 
@@ -7,7 +7,7 @@ class PictureInlineAdmin(admin.TabularInline):
     model = Picture
 
 
-class PostAdmin(TranslationAdmin):
+class ResumeAdmin(TranslationAdmin):
     inlines = [PictureInlineAdmin, ]
     multiupload_form = True
     multiupload_list = False
@@ -20,6 +20,18 @@ class PostAdmin(TranslationAdmin):
         return obj.delete()
 
 
-admin.site.register(Post, PostAdmin)
+class EducationAdmin(TranslationAdmin):
+    pass
+
+
+class ExperienceAdmin(TranslationAdmin):
+    pass
+
+
+admin.site.register(Education, EducationAdmin)
+admin.site.register(Experience, ExperienceAdmin)
+admin.site.register(Resume, ResumeAdmin)
 admin.site.register(Picture)
+admin.site.register(Music)
+admin.site.register(Skill)
 # Register your models here.

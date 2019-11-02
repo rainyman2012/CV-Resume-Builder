@@ -5,9 +5,11 @@ import ReactCountryFlag from "react-country-flag";
 import { Icon, Avatar, Menu, Select } from "antd";
 import { setLanguage, changeColor } from "../../store/actions/general";
 import { Lang as T } from "../../languages";
+import { HOSTNAME } from "../../static";
+import "./menu.css";
 const { Option } = Select;
 
-const StaticMenu = ({ language, changeLanguage, activePage }) => {
+const StaticMenu = ({ language, changeLanguage, activePage, resumes }) => {
   const [selected, setSelected] = useState("");
 
   function onChange(value) {
@@ -19,7 +21,23 @@ const StaticMenu = ({ language, changeLanguage, activePage }) => {
     console.log(e.key);
     setSelected(e.key);
   }
+  function getFullName() {
+    return (
+      <h3 style={{ marginTop: "1rem", marginBottom: "1rem" }}>
+        {`${resumes[0].user.profile.first_name} ${resumes[0].user.profile.last_name}`}
+      </h3>
+    );
+  }
+  let rightToLeftSupport = {
+    flexDirection: "row-reverse",
+    direction: "rtl",
+    mode: "right",
+    DynamicMenuItemWidth: "100px",
 
+    DynamicMenuItemAlignment: {
+      textAlign: "Right"
+    }
+  };
   let flag = "";
   if (language == "fa") {
     flag = (
@@ -31,6 +49,16 @@ const StaticMenu = ({ language, changeLanguage, activePage }) => {
     let htmlElement = document.getElementsByTagName("html")[0];
     htmlElement.dir = "rtl";
   } else {
+    rightToLeftSupport = {
+      flexDirection: "row",
+      direction: "ltr",
+      mode: "left",
+      DynamicMenuItemWidth: "100px",
+
+      DynamicMenuItemAlignment: {
+        textAlign: "left"
+      }
+    };
     flag = (
       <div style={{ textAlign: "left" }}>
         <ReactCountryFlag style={{ textAlign: "center" }} code="us" svg />
@@ -41,13 +69,18 @@ const StaticMenu = ({ language, changeLanguage, activePage }) => {
     htmlElement.dir = "ltr";
   }
   const general_texts = T[language];
+  if (!resumes) {
+    return null;
+  }
   return (
     <Menu
       theme="dark"
       mode="inline"
       selectedKeys={[activePage]}
-      style={{ backgroundColor: "#BD5D38" }}
+      className="menu"
     >
+      <h3> {general_texts.logoText} </h3>
+
       <div
         style={{
           textAlign: "center",
@@ -55,9 +88,9 @@ const StaticMenu = ({ language, changeLanguage, activePage }) => {
           marginBottom: "15px"
         }}
       >
-        <p> {general_texts.logoText} </p>{" "}
         <img
-          src={source}
+          src={`${HOSTNAME}/static/Ehsan.jpg`}
+          className="img-profile"
           style={{
             width: "150px",
             height: "150px",
@@ -65,104 +98,119 @@ const StaticMenu = ({ language, changeLanguage, activePage }) => {
             backgroundPosition: "center top",
             backgroundSize: "20%"
           }}
-        />{" "}
-      </div>{" "}
+        />
+      </div>
+      <h3> {getFullName()} </h3>
+
       <Menu.Item
-        key="1"
+        key="home"
         onClick={handleSelected}
         style={{ textAlign: "center" }}
       >
-        <Link to="/1">
-          <i class="fas fa-star" style={{ margin: "5px" }}>
-            {" "}
-          </i>{" "}
-          <span className="nav-text"> {general_texts.menu.page1} </span>{" "}
-        </Link>{" "}
-      </Menu.Item>{" "}
+        <Link to="/">
+          <div
+            style={{
+              width: rightToLeftSupport.DynamicMenuItemWidth,
+              margin: "auto auto",
+              ...rightToLeftSupport.DynamicMenuItemAlignment
+            }}
+          >
+            <i class="fas fa-star" style={{ margin: "5px" }}></i>
+            <span className="nav-text"> {general_texts.menu.page1} </span>
+          </div>
+        </Link>
+      </Menu.Item>
       <Menu.Item
-        key="2"
+        key="skills"
         onClick={handleSelected}
         style={{ textAlign: "center" }}
       >
-        <Link to="/2">
-          <i class="fas fa-female" style={{ margin: "5px" }}>
-            {" "}
-          </i>{" "}
-          <span className="nav-text"> {general_texts.menu.page2} </span>{" "}
-        </Link>{" "}
-      </Menu.Item>{" "}
+        <Link to="/skill">
+          <div
+            style={{
+              width: rightToLeftSupport.DynamicMenuItemWidth,
+              margin: "auto auto",
+              ...rightToLeftSupport.DynamicMenuItemAlignment
+            }}
+          >
+            <i class="fas fa-female" style={{ margin: "5px" }}></i>
+            <span className="nav-text"> {general_texts.menu.page2} </span>
+          </div>
+        </Link>
+      </Menu.Item>
       <Menu.Item
-        key="3"
+        key="exprience"
         onClick={handleSelected}
         style={{ textAlign: "center" }}
       >
-        <Link to="/3">
-          <i class="fas fa-female" style={{ margin: "5px" }}>
-            {" "}
-          </i>{" "}
-          <span className="nav-text"> {general_texts.menu.page3} </span>{" "}
-        </Link>{" "}
-      </Menu.Item>{" "}
+        <Link to="/expriences">
+          <div
+            style={{
+              width: rightToLeftSupport.DynamicMenuItemWidth,
+              margin: "auto auto",
+              ...rightToLeftSupport.DynamicMenuItemAlignment
+            }}
+          >
+            <i class="fas fa-female" style={{ margin: "5px" }}></i>
+            <span className="nav-text"> {general_texts.menu.page3} </span>
+          </div>
+        </Link>
+      </Menu.Item>
       <Menu.Item
-        key="4"
+        key="education"
         onClick={handleSelected}
         style={{ textAlign: "center" }}
       >
-        <Link to="/4">
-          <i class="fas fa-female" style={{ margin: "5px" }}>
-            {" "}
-          </i>{" "}
-          <span className="nav-text"> {general_texts.menu.page3} </span>{" "}
-        </Link>{" "}
-      </Menu.Item>{" "}
+        <Link to="/educations">
+          <div
+            style={{
+              width: rightToLeftSupport.DynamicMenuItemWidth,
+              margin: "auto auto",
+              ...rightToLeftSupport.DynamicMenuItemAlignment
+            }}
+          >
+            <i class="fas fa-female" style={{ margin: "5px" }}></i>
+            <span className="nav-text"> {general_texts.menu.page4} </span>
+          </div>
+        </Link>
+      </Menu.Item>
       <Menu.Item
-        key="5"
+        key="alboum"
         onClick={handleSelected}
         style={{ textAlign: "center" }}
       >
-        <Link to="/5">
-          <i class="fas fa-female" style={{ margin: "5px" }}>
-            {" "}
-          </i>{" "}
-          <span className="nav-text"> {general_texts.menu.page3} </span>{" "}
-        </Link>{" "}
-      </Menu.Item>{" "}
+        <Link to="/alboum">
+          <div
+            style={{
+              width: rightToLeftSupport.DynamicMenuItemWidth,
+              margin: "auto auto",
+              ...rightToLeftSupport.DynamicMenuItemAlignment
+            }}
+          >
+            <i class="fas fa-female" style={{ margin: "5px" }}></i>
+            <span className="nav-text"> {general_texts.menu.page3} </span>
+          </div>
+        </Link>
+      </Menu.Item>
       <Menu.Item
-        key="6"
+        key="musics"
         onClick={handleSelected}
         style={{ textAlign: "center" }}
       >
-        <Link to="/6">
-          <i class="fas fa-female" style={{ margin: "5px" }}>
-            {" "}
-          </i>{" "}
-          <span className="nav-text"> {general_texts.menu.page3} </span>{" "}
-        </Link>{" "}
-      </Menu.Item>{" "}
-      <Menu.Item
-        key="7"
-        onClick={handleSelected}
-        style={{ textAlign: "center" }}
-      >
-        <Link to="/7">
-          <i class="fas fa-female" style={{ margin: "5px" }}>
-            {" "}
-          </i>{" "}
-          <span className="nav-text"> {general_texts.menu.page3} </span>{" "}
-        </Link>{" "}
-      </Menu.Item>{" "}
-      <Menu.Item
-        key="8"
-        onClick={handleSelected}
-        style={{ textAlign: "center" }}
-      >
-        <Link to="/8">
-          <i class="fas fa-female" style={{ margin: "5px" }}>
-            {" "}
-          </i>{" "}
-          <span className="nav-text"> {general_texts.menu.page3} </span>{" "}
-        </Link>{" "}
-      </Menu.Item>{" "}
+        <Link to="/musics">
+          <div
+            style={{
+              width: rightToLeftSupport.DynamicMenuItemWidth,
+              margin: "auto auto",
+              ...rightToLeftSupport.DynamicMenuItemAlignment
+            }}
+          >
+            <i class="fas fa-female" style={{ margin: "5px" }}></i>
+            <span className="nav-text"> {general_texts.menu.page3} </span>
+          </div>
+        </Link>
+      </Menu.Item>
+
       <div
         style={{
           marginBottom: "15px",
@@ -171,15 +219,19 @@ const StaticMenu = ({ language, changeLanguage, activePage }) => {
           marginBottom: "15px"
         }}
       >
-        <Select style={{ width: 100 }} placeholder={flag} onChange={onChange}>
+        <Select
+          style={{ width: "100px" }}
+          placeholder={flag}
+          onChange={onChange}
+        >
           <Option value="en">
             <ReactCountryFlag code="us" svg />
-          </Option>{" "}
+          </Option>
           <Option value="fa">
             <ReactCountryFlag code="ir" svg />
-          </Option>{" "}
-        </Select>{" "}
-      </div>{" "}
+          </Option>
+        </Select>
+      </div>
     </Menu>
   );
 };
@@ -188,7 +240,8 @@ const mapStateToProps = state => {
   return {
     color: state.general.color,
     language: state.general.language,
-    activePage: state.general.activePage
+    activePage: state.general.activePage,
+    resumes: state.general.resumes
   };
 };
 
