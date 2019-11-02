@@ -1,0 +1,12 @@
+.img-profile {
+    max-width: 10rem;
+    max-height: 10rem;
+    border: .5rem solid rgba(255, 255, 255, .2);
+}
+
+.navbar-brand {
+    display: flex;
+    flex-direction: column;
+    margin: auto auto 0;
+    padding: .5rem;
+}

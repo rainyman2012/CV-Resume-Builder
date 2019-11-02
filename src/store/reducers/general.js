@@ -4,10 +4,10 @@ import { updateObject } from "../utility";
 const initialState = {
   color: "white",
   language: "fa",
-  posts: "",
+  resumes: null,
   error: "",
   loading: false,
-  activePage: "1"
+  activePage: "home"
 };
 
 const changeColor = (state, action) => {
@@ -16,20 +16,20 @@ const changeColor = (state, action) => {
   });
 };
 
-const postSuccess = (state, action) => {
+const resumeSuccess = (state, action) => {
   return updateObject(state, {
-    posts: action.posts,
+    resumes: action.resumes,
     loading: false
   });
 };
 
-const postStart = (state, action) => {
+const resumeStart = (state, action) => {
   return updateObject(state, {
     loading: true
   });
 };
 
-const postFail = (state, action) => {
+const resumeFail = (state, action) => {
   return updateObject(state, {
     error: action.error,
     loading: false
@@ -54,11 +54,11 @@ const reducer = (state = initialState, action) => {
     case actionTypes.GENERAL_LANGUAGE_SET:
       return generalLanguageSet(state, action);
     case actionTypes.POST_SUCCESS:
-      return postSuccess(state, action);
+      return resumeSuccess(state, action);
     case actionTypes.POST_START:
-      return postStart(state, action);
+      return resumeStart(state, action);
     case actionTypes.POST_FAIL:
-      return postFail(state, action);
+      return resumeFail(state, action);
     case actionTypes.GENERAL_ACTIVE_PAGE_CHANGED:
       return activePageChange(state, action);
     default:

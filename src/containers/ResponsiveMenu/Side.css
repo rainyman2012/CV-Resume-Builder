@@ -30,11 +30,35 @@
     height: 2px;
     background: rgb(53, 37, 37);
     align-self: center;
-    ;
 }
 
-.static-menu {
+.menu {
+    display: flex;
+    margin: auto auto;
+    flex-direction: column;
+    padding: .5rem;
+    background-color: #BD5D38;
+}
+
+#staticSide {
     display: none;
+}
+
+#dynamicSide .navbar {
+    background-color: #BD5D38;
+    height: 60px;
+}
+
+#dynamicSide .navbar .brand {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+#dynamicSide .navbar .brand p {
+    margin: 0;
 }
 
 .toggle-button {
@@ -45,7 +69,28 @@
     .hamburgerPart {
         display: none;
     }
-    .static-menu {
-        display: block;
+    #dynamicSide,
+    #drawer {
+        display: none;
+    }
+    #staticSide {
+        background-color: #BD5D38;
+        position: fixed;
+        text-align: center;
+        display: flex;
+        width: 17rem;
+        height: 100vh;
+    }
+    #staticSide .img-profile {
+        max-width: 10rem;
+        max-height: 10rem;
+        border: .5rem solid rgba(255, 255, 255, .2);
+    }
+    #staticSide .menu {
+        display: flex;
+        margin: auto auto;
+        flex-direction: column;
+        padding: .5rem;
+        background-color: #BD5D38;
     }
 }

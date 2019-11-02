@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 
 import { Layout } from "antd";
-import { postGetAll } from "../../store/actions/general";
+import { resumesGetAll } from "../../store/actions/general";
 
 import { Lang as T } from "../../languages";
 import StaticMenu from "./Menu";
@@ -14,9 +14,10 @@ const { Sider } = Layout;
 class StaticSide extends Component {
   UNSAFE_componentWillReceiveProps(nextProps) {
     if (this.props.language !== nextProps.language) {
-      this.props.getAllPosts(nextProps.language);
+      this.props.getAllResumes(nextProps.language);
     }
   }
+
   render() {
     let sideDir = {};
     if (this.props.language == "fa") {
@@ -30,20 +31,10 @@ class StaticSide extends Component {
         top: 0
       };
     }
-
     return (
-      <Sider
-        className="static-menu"
-        style={{
-          overflow: "auto",
-          height: "100vh",
-          position: "fixed",
-          backgroundColor: "#BD5D38",
-          ...sideDir
-        }}
-      >
+      <div id="staticSide" style={sideDir}>
         <StaticMenu />
-      </Sider>
+      </div>
     );
   }
 }
@@ -57,7 +48,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getAllPosts: lang => dispatch(postGetAll(lang))
+    getAllResumes: lang => dispatch(resumesGetAll(lang))
   };
 };
 

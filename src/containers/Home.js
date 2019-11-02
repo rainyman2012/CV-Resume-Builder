@@ -12,7 +12,7 @@ import { Lang as T } from "../languages";
 //   const isSSR = typeof window === "undefined";
 //   return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth;
 // };
-const PAGE = "1";
+const PAGE = "home";
 class HomepageLayout extends Component {
   componentWillMount() {
     this.props.setActivePage(PAGE);
@@ -21,7 +21,7 @@ class HomepageLayout extends Component {
     if (this.props.error) {
       return <div className="trans-to-middle"> server error </div>;
     }
-    if (!this.props.posts || this.props.loading) {
+    if (!this.props.resumes || this.props.loading) {
       return (
         <div className="overlay">
           <Spin className="spiner" size="large" />
@@ -31,22 +31,15 @@ class HomepageLayout extends Component {
     return (
       <React.Fragment>
         <Row type="flex" justify="space-around">
-          <Col>
-            <img
-              className="devils"
-              src={this.props.posts[0].pictures[1].image}
-              style={{ margin: "5px" }}
-            />
-            <img
-              className="devils"
-              src={this.props.posts[0].pictures[2].image}
-            />
+          <Col span={24}>
+            <div className="header">the is my be locate a header</div>
           </Col>
         </Row>
         <Row>
           <Col>
-            <hr />
-            <p>{ReactHtmlParser(this.props.posts[0].content)}</p>
+            <div className="summary">
+              {ReactHtmlParser(this.props.resumes[0].introduce)}
+            </div>
           </Col>
         </Row>
       </React.Fragment>
@@ -58,7 +51,7 @@ const mapStateToProps = state => {
   return {
     color: state.general.color,
     language: state.general.language,
-    posts: state.general.posts,
+    resumes: state.general.resumes,
     loading: state.general.loading,
     error: state.general.error
   };

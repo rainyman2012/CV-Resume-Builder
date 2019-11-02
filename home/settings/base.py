@@ -23,12 +23,12 @@ INSTALLED_APPS = [
     'rest_auth.registration',
     'rest_framework',
     'rest_framework.authtoken',
+    'accounts',
     'past_memory',
     'ckeditor'
 ]
 
 # this is a folder that created in media folder.
-CKEDITOR_UPLOAD_PATH = os.path.join(BASE_DIR, 'media')
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -83,6 +83,9 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'build/static'),
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# its very important to put upload path after media_root
+CKEDITOR_UPLOAD_PATH = 'uploads/'
 SITE_ID = 1
 
 REST_FRAMEWORK = {
@@ -94,7 +97,16 @@ REST_FRAMEWORK = {
     ),
 }
 
+
 ACCOUNT_EMAIL_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
-AWS_QUERYSTRING_AUTH = False
+
+REST_SESSION_LOGIN = True
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': "accounts.serializers.UserDetailsSerializer",
+}
+
+LOGIN_REDIRECT_URL = "/"

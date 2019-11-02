@@ -10,10 +10,10 @@ export const changeColorSet = color => {
   };
 };
 
-export const generalSetActivePage = num => {
+export const generalSetActivePage = name => {
   return {
     type: actionType.GENERAL_ACTIVE_PAGE_CHANGED,
-    activePage: num
+    activePage: name
   };
 };
 export const generalSetLanguage = language => {
@@ -23,20 +23,20 @@ export const generalSetLanguage = language => {
   };
 };
 
-export const postStart = () => {
+export const resumeStart = () => {
   return {
     type: actionType.POST_START
   };
 };
 
-export const postSuccess = posts => {
+export const resumeSuccess = resumes => {
   return {
     type: actionType.POST_SUCCESS,
-    posts: posts
+    resumes: resumes
   };
 };
 
-export const postFail = err => {
+export const resumeFail = err => {
   return {
     type: actionType.POST_FAIL,
     error: err
@@ -64,10 +64,10 @@ export const setActivePage = pageNum => {
 };
 
 // This UserName is the name of user is being poing
-export const postGetAll = lang => {
+export const resumesGetAll = lang => {
   //survey/getQuestions/fa/m/
   return dispatch => {
-    dispatch(postStart());
+    dispatch(resumeStart());
     axios({
       method: "get",
       url: `${HOSTNAME}/memory/${lang}/`,
@@ -76,11 +76,11 @@ export const postGetAll = lang => {
       }
     })
       .then(res => {
-        const posts = res.data;
-        dispatch(postSuccess(posts));
+        const resumes = res.data;
+        dispatch(resumeSuccess(resumes));
       })
       .catch(err => {
-        dispatch(postFail(err));
+        dispatch(resumeFail(err));
       });
   };
 };
