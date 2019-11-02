@@ -10,7 +10,9 @@
         "react": "^16.8.6",
         "react-alert": "^5.5.0",
         "react-alert-template-basic": "^1.0.0",
+        "react-country-flag": "^1.1.0",
         "react-dom": "^16.8.6",
+        "react-html-parser": "^2.0.2",
         "react-redux": "^7.1.0",
         "react-router-dom": "^5.0.1",
         "react-scripts": "^3.0.1",
@@ -27,7 +29,6 @@
         "test": "react-scripts test --env=jsdom",
         "eject": "react-scripts eject",
         "postinstall": "npm run build"
-
     },
     "engines": {
         "node": "10.16.1",
@@ -44,5 +45,8 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "devDependencies": {
+        "@fortawesome/fontawesome-free": "^5.11.2"
     }
 }

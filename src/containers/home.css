@@ -1,0 +1,11 @@
+.devils {
+    width: 120px;
+    height: 200px
+}
+
+@media(min-width: 768px) {
+    .devils {
+        width: 200px;
+        height: 200px
+    }
+}

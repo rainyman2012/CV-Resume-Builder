@@ -1,0 +1,51 @@
+.hamburgerPart {
+    text-align: center;
+    width: 50px;
+    position: fixed;
+    z-Index: 100;
+}
+
+.toggle-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    height: 30px;
+    position: fixed;
+    top: 20px;
+    background: transparent;
+    border: solid #BD5D38;
+    cursor: pointer;
+    padding: 0;
+    box-sizing: border-box;
+    z-index: 100;
+}
+
+.toggle-button:focus {
+    outline: none;
+}
+
+.toggle-button__line {
+    width: 30px;
+    height: 2px;
+    background: rgb(53, 37, 37);
+    align-self: center;
+    ;
+}
+
+.static-menu {
+    display: none;
+}
+
+.toggle-button {
+    display: flex;
+}
+
+@media(min-width: 768px) {
+    .hamburgerPart {
+        display: none;
+    }
+    .static-menu {
+        display: block;
+    }
+}

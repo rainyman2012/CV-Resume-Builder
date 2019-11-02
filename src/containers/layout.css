@@ -1,0 +1,12 @@
+.side-margin {
+    margin-right: 0px;
+}
+
+@media(min-width: 768px) {
+    .side-rtl {
+        margin-right: 200px;
+    }
+    .side-ltr {
+        margin-left: 200px;
+    }
+}
