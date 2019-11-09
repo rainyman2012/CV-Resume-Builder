@@ -17,7 +17,7 @@
 
 .stripe-bubbles {
     background-color: white;
-    height: 500px;
+    height: 200px;
     width: 100%;
 }
 
@@ -26,9 +26,8 @@
     width: 152px;
     height: 152px;
     border-radius: 50%;
-    background-image: url('https://www.stripe.com/img/v3/customers/logos/header-logos.png');
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 0 3px 10px rgba(0, 0, 0, 0.1);
-    background-size: 1076px 1076px;
+    background-size: 150px 150px;
 }
 
 .logo-imgAffirm {

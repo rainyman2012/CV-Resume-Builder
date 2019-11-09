@@ -104,9 +104,35 @@ class Skill(models.Model):
     resume = models.ForeignKey(
         Resume, on_delete=models.CASCADE, null=True, blank=True
     )
+    image = models.ImageField(
+        upload_to="skills/", height_field=None, width_field=None, max_length=None, null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        try:
+            img = Image.open(self.image.path)
+            output_size = (150, 150)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
+        except:
+            pass
+
+    def delete(self, *args, **kwargs):
+        self.image.delete()
+        super().delete(*args, **kwargs)
 
     def __str__(self):
-        return self.name
+        if self.name:
+            return self.name
+        elif self.image:
+            return self.image.name.rsplit('/', 1)[-1]
+        else:
+            return "--"
+
+    @property
+    def imagename(self):
+        img_name = self.image.name.rsplit('/', 1)[-1]
+        return img_name
 
 
 class Education(models.Model):
@@ -137,9 +163,30 @@ class Experience(models.Model):
     resume = models.ForeignKey(
         Resume, on_delete=models.CASCADE, null=True, blank=True
     )
+    image = models.ImageField(
+        upload_to="experiences/", height_field=None, width_field=None, max_length=None, null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        try:
+            img = Image.open(self.image.path)
+            output_size = (150, 150)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
+        except:
+            pass
+
+    def delete(self, *args, **kwargs):
+        self.image.delete()
+        super().delete(*args, **kwargs)
 
     def __str__(self):
         return self.company_name
+
+    @property
+    def imagename(self):
+        img_name = self.image.name.rsplit('/', 1)[-1]
+        return img_name
 
 
 class Music(models.Model):
