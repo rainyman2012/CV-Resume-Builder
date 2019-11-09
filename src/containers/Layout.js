@@ -100,7 +100,12 @@ class CustomLayout extends React.Component {
       );
 
     return (
-      <Layout>
+      <Layout
+        style={{
+          background: "-webkit-radial-gradient(#205983, #0A2742)",
+          background: "radial-gradient(#205983, #0A2742)"
+        }}
+      >
         <DrawerSide
           visible={this.state.visible}
           onClose={this.onClose}
@@ -108,22 +113,22 @@ class CustomLayout extends React.Component {
           sideMargin={this.state.sideMargin}
         />
         <StaticSide />
-        <Layout className={layoutPositionClass}>
-          <Content
-            className="content_basic"
-            style={{
-              overflow: "initial"
-            }}
-          >
-            {this.props.children}
-          </Content>
+        <Layout
+          className={layoutPositionClass}
+          style={{
+            background: "-webkit-radial-gradient(#205983, #0A2742)",
+            background: "radial-gradient(#205983, #0A2742)"
+          }}
+        >
+          <Content className="content_basic">{this.props.children}</Content>
           <Footer
             className="custom_footer"
             style={{
-              margin: "0px 16px 0",
+              height: "75px",
               textAlign: "center",
-              backgroundColor: this.props.color,
-              fontFamily: "sans-serif"
+              fontFamily: "sans-serif",
+              background: "-webkit-radial-gradient(#205983, #0A2742)",
+              background: "radial-gradient(#205983, #0A2742)"
             }}
           >
             CopyRight© 2019 Created by Revenger

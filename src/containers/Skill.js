@@ -45,21 +45,9 @@ class Skill extends Component {
     });
 
     return (
-      <div>
+      <div style={{ height: "100vh" }}>
         {this.props.resumes[0] ? (
-          <div id="skills">
-            {rate}
-            {rate}
-            {rate}
-            {rate}
-            {rate}
-            {rate}
-            {rate}
-            {rate}
-            {rate}
-            {rate}
-            {rate}
-          </div>
+          <div id="skills">{rate}</div>
         ) : (
           <div style={{ textAlign: "center" }}>
             <p>No Content</p>
