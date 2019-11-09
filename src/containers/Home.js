@@ -6,6 +6,7 @@ import { setActivePage } from "../store/actions/general";
 import ReactHtmlParser from "react-html-parser";
 import "./home.css";
 import { Row, Col, Spin, Icon, Button, message } from "antd";
+import BubbleHeader from "./bubble";
 import { Lang as T } from "../languages";
 
 // const getWidth = () => {
@@ -28,11 +29,32 @@ class HomepageLayout extends Component {
         </div>
       );
     }
+    let rightToLeftSupport = {
+      flexDirection: "row-reverse",
+      direction: "rtl",
+      mode: "right",
+      margin: {
+        marginRight: "1rem"
+      }
+    };
+    if (this.props.language !== "fa") {
+      rightToLeftSupport = {
+        flexDirection: "row",
+        direction: "ltr",
+        mode: "left",
+        margin: {
+          marginLeft: "1rem"
+        }
+      };
+    }
     return (
       <React.Fragment>
         <Row type="flex" justify="space-around">
           <Col span={24}>
-            <div className="header">the is my be locate a header</div>
+            <BubbleHeader
+              container={this.props.resumes[0].skills}
+              direction={rightToLeftSupport.direction}
+            />
           </Col>
         </Row>
         <Row>

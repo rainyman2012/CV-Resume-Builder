@@ -8,7 +8,7 @@ from django.utils import translation
 class SkillSerializer(serializers.ModelSerializer):
     class Meta:
         model = Skill
-        fields = ('id', 'name', 'point')
+        fields = ('id', 'name', 'point', "image")
 
 
 class MusicSerializer(serializers.ModelSerializer):
@@ -28,7 +28,7 @@ class ExperienceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Experience
         fields = ('id', 'company_name', 'work_from',
-                  'work_to', 'duties_and_achivements', 'website', 'about_company')
+                  'work_to', 'duties_and_achivements', 'website', 'about_company', "image")
         depth = 0  # we can set this to get all realation
 
 
