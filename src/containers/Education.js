@@ -92,12 +92,8 @@ class Education extends Component {
     return (
       <div>
         {this.props.resumes[0] ? (
-          <div id="Experiences" style={{ direction: "ltr" }}>
+          <div id="Experiences" style={{ direction: "ltr", height: "100vh" }}>
             <Timeline mode={rightToLeftSupport.mode}>
-              {timeLineItems}
-              {timeLineItems}
-              {timeLineItems}
-              {timeLineItems}
               {timeLineItems}
               {timeLineItems}
               {timeLineItems}

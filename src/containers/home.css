@@ -17,9 +17,6 @@
     background-color: rgb(211, 157, 58);
 }
 
-@media(min-width: 768px) {
-    .devils {
-        width: 200px;
-        height: 200px
-    }
+.summary .center_header {
+    text-align: center;
 }

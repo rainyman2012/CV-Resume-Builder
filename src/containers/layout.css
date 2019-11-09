@@ -25,6 +25,10 @@ p.lead {
     font-size: 1.5rem;
 }
 
+.content_basic {
+    height: 100%;
+}
+
 @media(min-width: 768px) {
     .side-rtl {
         margin-top: 0.5rem;

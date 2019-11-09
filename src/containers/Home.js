@@ -54,13 +54,17 @@ class HomepageLayout extends Component {
             <BubbleHeader
               container={this.props.resumes[0].skills}
               direction={rightToLeftSupport.direction}
+              point={true}
             />
           </Col>
         </Row>
-        <Row>
+        <Row style={{ height: "100vh" }}>
           <Col>
             <div className="summary">
-              {ReactHtmlParser(this.props.resumes[0].introduce)}
+              <h3 className="center_header">
+                {this.props.resumes[0].user.profile.first_name}{" "}
+                {this.props.resumes[0].user.profile.last_name}
+              </h3>
             </div>
           </Col>
         </Row>
