@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { Spin } from "antd";
-
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 import "./bubble.css";
-import { HOSTNAME } from "../static";
+import { HOSTNAME } from "../../static";
 const DEBUG = false;
 const START_ENGINE = true;
 const scrollingSpeed = 0.3;
@@ -14,7 +13,7 @@ const noise_amnt = 20;
 const initWidth = 1000;
 const dx = 80; // if you want to bubbles get closer in x axis you must change dx.
 const dy = 70; // if you want to bubbles get closer in y axis you must change dy.
-const bubbleDiameter = 150;
+const bubbleDiameter = 150 - 20;
 const colors = [
   "BurlyWood",
   "CadetBlue",
@@ -285,8 +284,7 @@ class BubbleHeader extends Component {
         style: {
           ...dynamicbackground
         },
-        bubbleDiameter:
-          (bubbleDiameter / 2) * (relativeParentWidth / initWidth),
+        bubbleDiameter: bubbleDiameter * (relativeParentWidth / initWidth),
         s: scale, // Scales will selet based on skill point
         x: dx * index,
         y: this.getRandomInt(0, dy)

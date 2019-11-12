@@ -179,7 +179,7 @@ const StaticMenu = ({ language, changeLanguage, activePage, resumes }) => {
         onClick={handleSelected}
         style={{ textAlign: "center" }}
       >
-        <Link to="/alboum">
+        <Link to="/album">
           <div
             style={{
               width: rightToLeftSupport.DynamicMenuItemWidth,
@@ -188,25 +188,7 @@ const StaticMenu = ({ language, changeLanguage, activePage, resumes }) => {
             }}
           >
             <i class="fas fa-female" style={{ margin: "5px" }}></i>
-            <span className="nav-text"> {general_texts.menu.page3} </span>
-          </div>
-        </Link>
-      </Menu.Item>
-      <Menu.Item
-        key="musics"
-        onClick={handleSelected}
-        style={{ textAlign: "center" }}
-      >
-        <Link to="/musics">
-          <div
-            style={{
-              width: rightToLeftSupport.DynamicMenuItemWidth,
-              margin: "auto auto",
-              ...rightToLeftSupport.DynamicMenuItemAlignment
-            }}
-          >
-            <i class="fas fa-female" style={{ margin: "5px" }}></i>
-            <span className="nav-text"> {general_texts.menu.page3} </span>
+            <span className="nav-text"> {general_texts.menu.page5} </span>
           </div>
         </Link>
       </Menu.Item>

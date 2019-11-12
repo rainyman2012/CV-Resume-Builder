@@ -4,7 +4,8 @@ const Lang = {
       page1: "خلاصه",
       page2: "مهارت ها",
       page3: "شرکت‌ها",
-      page4: "تحصیلات"
+      page4: "تحصیلات",
+      page5: "گالری"
     },
     languageName: "فارسی",
     menuName: "منو",
@@ -34,7 +35,8 @@ const Lang = {
       page1: "Summery",
       page2: "Skills",
       page3: "Companies",
-      page4: "Educations"
+      page4: "Educations",
+      page5: "Gallery"
     },
     rate: ["terrible", "bad", "normal", "good", "wonderful"],
     languageName: "English",

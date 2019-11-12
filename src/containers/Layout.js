@@ -8,6 +8,8 @@ import { Lang as T } from "../languages";
 import DrawerSide from "./ResponsiveMenu/DrawerSide";
 import StaticSide from "./ResponsiveMenu/StaticSide";
 import "./layout.css";
+import MusicPlayer from "./player";
+
 const { Content, Footer } = Layout;
 
 class CustomLayout extends React.Component {
@@ -134,6 +136,7 @@ class CustomLayout extends React.Component {
             CopyRight© 2019 Created by Revenger
           </Footer>
         </Layout>
+        <MusicPlayer language={this.props.language} />
       </Layout>
     );
   }

@@ -1,0 +1,22 @@
+.devils {
+    width: 120px;
+    height: 200px
+}
+
+.header {
+    margin-bottom: 0.5rem;
+    height: 10rem;
+    width: 100%;
+    background-color: cadetblue;
+}
+
+.summary h3 {
+    font-size: 1.5rem;
+    border-color: rgb(211, 157, 58);
+    border-style: solid;
+    background-color: rgb(211, 157, 58);
+}
+
+.summary .center_header {
+    text-align: center;
+}

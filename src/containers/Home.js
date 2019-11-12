@@ -6,7 +6,7 @@ import { setActivePage } from "../store/actions/general";
 import ReactHtmlParser from "react-html-parser";
 import "./home.css";
 import { Row, Col, Spin, Icon, Button, message } from "antd";
-import BubbleHeader from "./bubble";
+import BubbleHeader from "./bubble/bubble";
 import { Lang as T } from "../languages";
 
 // const getWidth = () => {
