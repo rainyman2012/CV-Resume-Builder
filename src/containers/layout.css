@@ -2,17 +2,6 @@
     margin-right: 0px;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #36628f;
-}
-
 p.lead {
     font-size: 1.15rem;
     font-weight: 400;
@@ -29,13 +18,31 @@ p.lead {
     height: 100%;
 }
 
+.ant-timeline-item-head-custom {
+    background-color: transparent;
+}
+
 @media(min-width: 768px) {
     .side-rtl {
-        margin-top: 0.5rem;
-        margin-right: 17.25rem;
+        margin-right: 17rem;
     }
     .side-ltr {
-        margin-top: 0.5rem;
-        margin-left: 17.25rem;
+        margin-left: 17rem;
     }
+}
+
+.custom-footer {
+    background: rgb(10, 50, 72);
+    background: -moz-linear-gradient(0deg, rgba(10, 50, 72, 1) 69%, rgba(56, 94, 45, 0) 70%);
+    background: -webkit-linear-gradient(0deg, rgba(10, 50, 72, 1) 69%, rgba(56, 94, 45, 0) 70%);
+    background: linear-gradient(0deg, rgba(10, 50, 72, 1) 69%, rgba(56, 94, 45, 0) 70%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#0a3248", endColorstr="#385e2d", GradientType=1);
+}
+
+.custom-main {
+    background: rgb(28, 65, 21);
+    background: -moz-radial-gradient(circle, rgba(28, 65, 21, 1) 0%, rgba(10, 83, 83, 1) 100%);
+    background: -webkit-radial-gradient(circle, rgba(28, 65, 21, 1) 0%, rgba(10, 83, 83, 1) 100%);
+    background: radial-gradient(circle, rgba(28, 65, 21, 1) 0%, rgba(10, 83, 83, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#1c4115", endColorstr="#0a5353", GradientType=1);
 }

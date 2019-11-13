@@ -8,7 +8,7 @@ import { Row, Col, Spin, Timeline, Icon } from "antd";
 import { Lang as T } from "../languages";
 import "./general.css";
 import "./Experience.css";
-const PAGE = "Experience";
+const PAGE = "educations";
 
 class Education extends Component {
   componentWillMount() {

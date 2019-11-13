@@ -13,7 +13,7 @@ const noise_amnt = 20;
 const initWidth = 1000;
 const dx = 80; // if you want to bubbles get closer in x axis you must change dx.
 const dy = 70; // if you want to bubbles get closer in y axis you must change dy.
-const bubbleDiameter = 150 - 20;
+const bubbleDiameter = 150 - 10;
 const colors = [
   "BurlyWood",
   "CadetBlue",

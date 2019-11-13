@@ -23,14 +23,18 @@ class DrawerSide extends Component {
     let toggleAlign = {};
     let logoAlign = {};
     let placement = "";
+    var githubBannerPosition = "";
+
     if (this.props.language == "fa") {
       toggleAlign = { right: "10px" };
       logoAlign = { float: "left", marginLeft: "10px" };
       placement = "right";
+      githubBannerPosition = "github-rtl";
     } else {
       toggleAlign = { left: "10px" };
       logoAlign = { float: "right", marginRight: "10px" };
       placement = "left";
+      githubBannerPosition = "github-ltr";
     }
     const general_texts = T[this.props.language];
 
@@ -62,10 +66,15 @@ class DrawerSide extends Component {
           onClose={this.props.onClose}
           visible={this.props.visible}
           width="17rem"
-          drawerStyle={{ backgroundColor: "#BD5D38" }}
-          bodyStyle={{ padding: "2px" }}
+          drawerStyle={{ backgroundColor: "#0A483A" }}
+          bodyStyle={{ padding: "0" }}
         >
-          <StaticMenu />
+          <div className={`github ${githubBannerPosition}`}>
+            <i class="fab fa-github"></i>
+          </div>
+          <div style={{ position: "relative", top: "80px" }}>
+            <StaticMenu />
+          </div>
         </Drawer>
       </div>
     );

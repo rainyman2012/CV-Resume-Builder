@@ -8,6 +8,8 @@ const Lang = {
       page5: "گالری"
     },
     languageName: "فارسی",
+    selectLanguage: "زبان خود را انتخاب کنید",
+
     menuName: "منو",
     serverError: "مشکلی از سمت سرور پیش آمده  لطفا لحاظاتی بعد مجدد تلاش کنید.",
     loading: "در حال خواندن اطلاعات",
@@ -41,7 +43,7 @@ const Lang = {
     rate: ["terrible", "bad", "normal", "good", "wonderful"],
     languageName: "English",
     menuName: "menu",
-
+    selectLanguage: "Select your Language",
     serverError:
       "We`re Sorry ... its seems like something wrong happened in the server. please try again later",
     loading: "loading data",

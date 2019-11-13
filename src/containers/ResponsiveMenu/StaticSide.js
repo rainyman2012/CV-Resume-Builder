@@ -20,20 +20,27 @@ class StaticSide extends Component {
 
   render() {
     let sideDir = {};
+    var githubBannerPosition = "";
     if (this.props.language == "fa") {
       sideDir = {
         right: 0,
         top: 0
       };
+      githubBannerPosition = "github-rtl";
     } else {
       sideDir = {
         left: 0,
         top: 0
       };
+      githubBannerPosition = "github-ltr";
     }
     return (
       <div id="staticSide" style={sideDir}>
-        <StaticMenu />
+        <div className={`github ${githubBannerPosition}`}>
+          <i class="fab fa-github"></i>
+        </div>
+
+        <StaticMenu menuStyle={{ marginTop: "80px" }} />
       </div>
     );
   }

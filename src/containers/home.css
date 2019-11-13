@@ -7,16 +7,21 @@
     margin-bottom: 0.5rem;
     height: 10rem;
     width: 100%;
-    background-color: cadetblue;
 }
 
-.summary h3 {
+.main .box {
+    width: 98%;
+    margin-top: 3rem;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.main h3 {
     font-size: 1.5rem;
-    border-color: rgb(211, 157, 58);
-    border-style: solid;
-    background-color: rgb(211, 157, 58);
+    background-color: rgb(21, 133, 30);
+    border-radius: 10px;
 }
 
-.summary .center_header {
+.main .center_header {
     text-align: center;
 }

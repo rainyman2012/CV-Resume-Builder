@@ -50,7 +50,7 @@ class HomepageLayout extends Component {
     return (
       <React.Fragment>
         <Row type="flex" justify="space-around">
-          <Col span={24}>
+          <Col span={24} className="wave">
             <BubbleHeader
               container={this.props.resumes[0].skills}
               direction={rightToLeftSupport.direction}
@@ -59,12 +59,15 @@ class HomepageLayout extends Component {
           </Col>
         </Row>
         <Row style={{ height: "100vh" }}>
-          <Col>
-            <div className="summary">
-              <h3 className="center_header">
-                {this.props.resumes[0].user.profile.first_name}{" "}
-                {this.props.resumes[0].user.profile.last_name}
-              </h3>
+          <Col span={24}>
+            <div className="main">
+              <div className="box">
+                <h3 className="center_header">
+                  {this.props.resumes[0].user.profile.first_name}{" "}
+                  {this.props.resumes[0].user.profile.last_name}
+                </h3>
+                <p>{ReactHtmlParser(this.props.resumes[0].introduce)}</p>
+              </div>
             </div>
           </Col>
         </Row>

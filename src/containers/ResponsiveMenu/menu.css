@@ -1,12 +1,110 @@
-.img-profile {
-    max-width: 10rem;
-    max-height: 10rem;
-    border: .5rem solid rgba(255, 255, 255, .2);
-}
-
-.navbar-brand {
-    display: flex;
-    flex-direction: column;
-    margin: auto auto 0;
-    padding: .5rem;
-}
+        .img-profile {
+            max-width: 10rem;
+            max-height: 10rem;
+            border: .5rem solid rgba(255, 255, 255, .2);
+        }
+        
+        .navbar-brand {
+            display: flex;
+            flex-direction: column;
+            margin: auto auto 0;
+            padding: .5rem;
+        }
+        
+        .menu {
+            display: flex;
+            margin: auto auto;
+            flex-direction: column;
+            padding: .5rem;
+            background-color: transparent;
+        }
+        
+        .ant-menu.ant-menu-dark .ant-menu-item-selected,
+        .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
+            background-color: #21792a;
+            border-radius: 30px;
+        }
+        
+        .ant-select-selection-selected-value {
+            float: none;
+        }
+        
+        .ant-select-dropdown-menu-item {
+            padding: 0;
+        }
+        
+        .ant-select-dropdown-menu {
+            padding-right: 0;
+        }
+        
+        .menu .item {
+            border-radius: 30px;
+        }
+        
+        .menu .item:hover {
+            background-color: #21792a;
+            border-radius: 30px;
+        }
+        
+        .menu .nav-text {
+            color: yellow;
+        }
+        
+        .menu h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #ECC90D;
+        }
+        
+        .social-icons {
+            text-align: center;
+            direction: ltr;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            background-color: #0b7734fd;
+            color: #fff !important;
+            border-radius: 100%;
+            text-align: center;
+            font-size: 1.5rem;
+            line-height: 3rem;
+            margin-right: 1rem;
+        }
+        
+        .social-icons a:hover {
+            background-color: #BD5D38;
+        }
+        
+        .social-icons a:last-child {
+            margin-right: 0;
+        }
+        
+        .github {
+            position: absolute;
+            width: 70%;
+            background-color: rgb(196, 112, 34);
+            font-size: 1.5rem;
+            height: 100px;
+            text-align: center;
+        }
+        
+        .github i {
+            position: relative;
+            top: 60%;
+        }
+        
+        .github-rtl {
+            transform: rotate(45deg) translate(40px, -80%)
+        }
+        
+        .github-ltr {
+            transform: rotate(-45deg) translate(-40px, -80%)
+        }

@@ -8,7 +8,7 @@ import { Row, Col, Spin, Timeline, Icon } from "antd";
 import { Lang as T } from "../languages";
 import "./general.css";
 import "./Experience.css";
-const PAGE = "Experience";
+const PAGE = "experiences";
 
 class Experience extends Component {
   componentWillMount() {
@@ -29,13 +29,19 @@ class Experience extends Component {
     let rightToLeftSupport = {
       flexDirection: "row-reverse",
       direction: "rtl",
-      mode: "right"
+      mode: "right",
+      headMargin: {
+        marginRight: "1rem"
+      }
     };
     if (this.props.language !== "fa") {
       rightToLeftSupport = {
         flexDirection: "row",
         direction: "ltr",
-        mode: "left"
+        mode: "left",
+        headMargin: {
+          marginLeft: "1rem"
+        }
       };
     }
     const general_texts = T[this.props.language];
@@ -44,14 +50,19 @@ class Experience extends Component {
       (exper, index) => {
         return (
           <Timeline.Item
-            dot={<Icon type="clock-circle-o" style={{ fontSize: "16px" }} />}
+            dot={
+              <img
+                style={{ width: "50px", height: "50px" }}
+                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+              />
+            }
             style={{ width: "40rem" }}
           >
             <Row
               type="flex"
               style={{ flexDirection: rightToLeftSupport.flexDirection }}
             >
-              <Col span={6} style={{ marginLeft: "1rem" }}>
+              <Col span={6} style={rightToLeftSupport.headMargin}>
                 {exper.company_name}
               </Col>
               <Col span={5}>

@@ -9,7 +9,13 @@ import { HOSTNAME } from "../../static";
 import "./menu.css";
 const { Option } = Select;
 
-const StaticMenu = ({ language, changeLanguage, activePage, resumes }) => {
+const StaticMenu = ({
+  language,
+  changeLanguage,
+  activePage,
+  resumes,
+  menuStyle
+}) => {
   const [selected, setSelected] = useState("");
 
   function onChange(value) {
@@ -22,11 +28,7 @@ const StaticMenu = ({ language, changeLanguage, activePage, resumes }) => {
     setSelected(e.key);
   }
   function getFullName() {
-    return (
-      <h3 style={{ marginTop: "1rem", marginBottom: "1rem" }}>
-        {`${resumes[0].user.profile.first_name} ${resumes[0].user.profile.last_name}`}
-      </h3>
-    );
+    return `${resumes[0].user.profile.first_name} ${resumes[0].user.profile.last_name}`;
   }
   let rightToLeftSupport = {
     flexDirection: "row-reverse",
@@ -36,15 +38,18 @@ const StaticMenu = ({ language, changeLanguage, activePage, resumes }) => {
 
     DynamicMenuItemAlignment: {
       textAlign: "Right"
-    }
+    },
+    dropdDownMenu: {
+      position: "absolute",
+      left: "10px"
+    },
+    dropdDownMenuSelected: {
+      float: "right"
+    },
+    githubBanner: "github-rtl"
   };
-  let flag = "";
+
   if (language == "fa") {
-    flag = (
-      <div style={{ textAlign: "left" }}>
-        <ReactCountryFlag style={{ textAlign: "center" }} code="ir" svg />
-      </div>
-    );
     document.body.style.fontFamily = "Amiri";
     let htmlElement = document.getElementsByTagName("html")[0];
     htmlElement.dir = "rtl";
@@ -57,13 +62,17 @@ const StaticMenu = ({ language, changeLanguage, activePage, resumes }) => {
 
       DynamicMenuItemAlignment: {
         textAlign: "left"
-      }
+      },
+      dropdDownMenu: {
+        position: "absolute",
+        right: "10px"
+      },
+      dropdDownMenuSelected: {
+        float: "left"
+      },
+      githubBanner: "github-ltr"
     };
-    flag = (
-      <div style={{ textAlign: "left" }}>
-        <ReactCountryFlag style={{ textAlign: "center" }} code="us" svg />
-      </div>
-    );
+
     document.body.style.fontFamily = "Amiri";
     let htmlElement = document.getElementsByTagName("html")[0];
     htmlElement.dir = "ltr";
@@ -78,16 +87,16 @@ const StaticMenu = ({ language, changeLanguage, activePage, resumes }) => {
       mode="inline"
       selectedKeys={[activePage]}
       className="menu"
+      style={menuStyle}
     >
-      <h3> {general_texts.logoText} </h3>
-
       <div
         style={{
           textAlign: "center",
-          marginTop: "15px",
+
           marginBottom: "15px"
         }}
       >
+        <h2> {general_texts.logoText} </h2>
         <img
           src={`${HOSTNAME}/static/Ehsan.jpg`}
           className="img-profile"
@@ -99,11 +108,12 @@ const StaticMenu = ({ language, changeLanguage, activePage, resumes }) => {
             backgroundSize: "20%"
           }}
         />
+        <h3 style={{ marginTop: "20px" }}> {getFullName()} </h3>
       </div>
-      <h3> {getFullName()} </h3>
 
       <Menu.Item
         key="home"
+        className="item"
         onClick={handleSelected}
         style={{ textAlign: "center" }}
       >
@@ -120,8 +130,10 @@ const StaticMenu = ({ language, changeLanguage, activePage, resumes }) => {
           </div>
         </Link>
       </Menu.Item>
+
       <Menu.Item
         key="skills"
+        className="item"
         onClick={handleSelected}
         style={{ textAlign: "center" }}
       >
@@ -139,11 +151,12 @@ const StaticMenu = ({ language, changeLanguage, activePage, resumes }) => {
         </Link>
       </Menu.Item>
       <Menu.Item
-        key="exprience"
+        key="experiences"
+        className="item"
         onClick={handleSelected}
         style={{ textAlign: "center" }}
       >
-        <Link to="/expriences">
+        <Link to="/experiences">
           <div
             style={{
               width: rightToLeftSupport.DynamicMenuItemWidth,
@@ -157,8 +170,9 @@ const StaticMenu = ({ language, changeLanguage, activePage, resumes }) => {
         </Link>
       </Menu.Item>
       <Menu.Item
-        key="education"
+        key="educations"
         onClick={handleSelected}
+        className="item"
         style={{ textAlign: "center" }}
       >
         <Link to="/educations">
@@ -175,8 +189,9 @@ const StaticMenu = ({ language, changeLanguage, activePage, resumes }) => {
         </Link>
       </Menu.Item>
       <Menu.Item
-        key="alboum"
+        key="album"
         onClick={handleSelected}
+        className="item"
         style={{ textAlign: "center" }}
       >
         <Link to="/album">
@@ -196,23 +211,50 @@ const StaticMenu = ({ language, changeLanguage, activePage, resumes }) => {
       <div
         style={{
           marginBottom: "15px",
-          textAlign: "center",
           marginTop: "15px",
-          marginBottom: "15px"
+          marginBottom: "15px",
+          direction: "ltr"
         }}
       >
+        {/* For supporting RTL Languages i forced to disable some css floating of Antd CSS like 
+      ant-select-selection-selected-value, ant-select-dropdown-menu-item, ant-select-dropdown-menu. You can find this changes in menu.css */}
         <Select
-          style={{ width: "100px" }}
-          placeholder={flag}
+          style={{ width: "100%" }}
+          defaultValue={general_texts.selectLanguage}
           onChange={onChange}
         >
           <Option value="en">
-            <ReactCountryFlag code="us" svg />
+            <div style={rightToLeftSupport.dropdDownMenuSelected}>
+              <span>English</span>
+              <span style={rightToLeftSupport.dropdDownMenu}>
+                <ReactCountryFlag code="us" svg />
+              </span>
+            </div>
           </Option>
           <Option value="fa">
-            <ReactCountryFlag code="ir" svg />
+            <div style={rightToLeftSupport.dropdDownMenuSelected}>
+              <span>فارسی</span>
+              <span style={rightToLeftSupport.dropdDownMenu}>
+                <ReactCountryFlag code="ir" svg />
+              </span>
+            </div>
           </Option>
         </Select>
+      </div>
+
+      <div class="social-icons">
+        <a href="#">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="#">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="#">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#">
+          <i class="fab fa-facebook-f"></i>
+        </a>
       </div>
     </Menu>
   );

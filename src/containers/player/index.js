@@ -78,10 +78,10 @@ const options = {
   closeText: "关闭",
 
   //audio theme switch checkedText  [ type `String | ReactNode` default '-']
-  checkedText: "开",
+  checkedText: "off",
 
   //audio theme switch unCheckedText [ type `String | ReactNode` default '-']
-  unCheckedText: "关",
+  unCheckedText: "on",
 
   // audio list panel show text of the playlist has no songs [ type `String` | ReactNode  default 'no music']
   notContentText: "暂无音乐",

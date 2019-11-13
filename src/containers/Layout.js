@@ -115,22 +115,14 @@ class CustomLayout extends React.Component {
           sideMargin={this.state.sideMargin}
         />
         <StaticSide />
-        <Layout
-          className={layoutPositionClass}
-          style={{
-            background: "-webkit-radial-gradient(#205983, #0A2742)",
-            background: "radial-gradient(#205983, #0A2742)"
-          }}
-        >
+        <Layout className={`custom-main ${layoutPositionClass}`}>
           <Content className="content_basic">{this.props.children}</Content>
           <Footer
-            className="custom_footer"
+            className="custom-footer"
             style={{
               height: "75px",
               textAlign: "center",
-              fontFamily: "sans-serif",
-              background: "-webkit-radial-gradient(#205983, #0A2742)",
-              background: "radial-gradient(#205983, #0A2742)"
+              fontFamily: "sans-serif"
             }}
           >
             CopyRight© 2019 Created by Revenger
