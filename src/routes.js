@@ -8,16 +8,24 @@ import Experience from "./containers/Experience";
 import Educations from "./containers/Education";
 import Album from "./containers/album/album";
 import NotFoundPage from "./containers/NotFoundPage";
+import ScrollToTopPage from "./hoc/ScrollToTop";
+
 const BaseRouter = () => (
   <Hoc>
     <Switch>
-      <Route exact path="/" component={HomepageLayout} />
-      <Route exact path="/skill" component={Skill} />
-      <Route exact path="/experiences" component={Experience} />
-      <Route exact path="/educations" component={Educations} />
-      <Route exact path="/album" component={Album} />
+      <Route exact path="/" component={ScrollToTopPage(HomepageLayout)} />
+      <Route exact path="/skill" component={ScrollToTopPage(Skill)} />
 
-      <Route path="*" component={NotFoundPage} />
+      <Route
+        exact
+        path="/experiences"
+        component={ScrollToTopPage(Experience)}
+      />
+
+      <Route exact path="/educations" component={ScrollToTopPage(Educations)} />
+      <Route exact path="/album" component={ScrollToTopPage(Album)} />
+
+      <Route path="*" component={ScrollToTopPage(NotFoundPage)} />
     </Switch>
   </Hoc>
 );

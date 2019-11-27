@@ -30,7 +30,7 @@ class Skill extends Component {
 
     const rate = this.props.resumes[0].skills.map((skill, index) => {
       return (
-        <Row type="flex" justify="center" style={{ width: "100%" }}>
+        <Row type="flex" justify="center">
           <Col span={6}>
             <span style={{ margin: "1rem" }}>{skill.name}</span>
           </Col>
@@ -45,15 +45,17 @@ class Skill extends Component {
     });
 
     return (
-      <div style={{ height: "100vh" }}>
+      <>
         {this.props.resumes[0] ? (
-          <div id="skills">{rate}</div>
+          <div id="Skills" style={{ direction: "ltr" }}>
+            {rate}
+          </div>
         ) : (
           <div style={{ textAlign: "center" }}>
             <p>No Content</p>
           </div>
         )}
-      </div>
+      </>
     );
   }
 }
@@ -74,9 +76,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Skill)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Skill));

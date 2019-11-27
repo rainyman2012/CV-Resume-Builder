@@ -5,9 +5,11 @@ import BaseRouter from "./routes";
 import "antd/dist/antd.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import CustomLayout from "./containers/Layout";
-
+import ScrollToTopPage from "./hoc/ScrollToTop";
 class App extends Component {
   render() {
+    console.log(window.navigator.language);
+
     return (
       <Router>
         <CustomLayout {...this.props}>

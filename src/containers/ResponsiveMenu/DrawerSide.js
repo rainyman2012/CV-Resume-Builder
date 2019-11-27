@@ -69,9 +69,11 @@ class DrawerSide extends Component {
           drawerStyle={{ backgroundColor: "#0A483A" }}
           bodyStyle={{ padding: "0" }}
         >
-          <div className={`github ${githubBannerPosition}`}>
-            <i class="fab fa-github"></i>
-          </div>
+          <a href="https://github.com/rainyman2012/CV-Resume-Builder">
+            <div className={`github ${githubBannerPosition}`}>
+              <i class="fab fa-github"></i>
+            </div>
+          </a>
           <div style={{ position: "relative", top: "80px" }}>
             <StaticMenu />
           </div>
@@ -94,8 +96,5 @@ const mapDispatchToProps = dispatch => {
   };
 };
 export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(DrawerSide)
+  connect(mapStateToProps, mapDispatchToProps)(DrawerSide)
 );

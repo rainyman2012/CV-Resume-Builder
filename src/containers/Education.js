@@ -51,7 +51,6 @@ class Education extends Component {
         return (
           <Timeline.Item
             dot={<Icon type="clock-circle-o" style={{ fontSize: "16px" }} />}
-            style={{ width: "30rem" }}
           >
             <Row
               type="flex"
@@ -92,8 +91,11 @@ class Education extends Component {
     return (
       <div>
         {this.props.resumes[0] ? (
-          <div id="Experiences" style={{ direction: "ltr", height: "100vh" }}>
-            <Timeline mode={rightToLeftSupport.mode}>
+          <div id="Experiences" style={{ direction: "ltr" }}>
+            <Timeline
+              mode={rightToLeftSupport.mode}
+              style={{ width: "40rem", margin: "auto 40px" }}
+            >
               {timeLineItems}
               {timeLineItems}
               {timeLineItems}
@@ -126,8 +128,5 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Education)
+  connect(mapStateToProps, mapDispatchToProps)(Education)
 );

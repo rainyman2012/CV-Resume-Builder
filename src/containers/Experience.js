@@ -5,6 +5,7 @@ import { withRouter, Link } from "react-router-dom";
 import ReactHtmlParser from "react-html-parser";
 import { setActivePage } from "../store/actions/general";
 import { Row, Col, Spin, Timeline, Icon } from "antd";
+import { HOSTNAME } from "../static";
 import { Lang as T } from "../languages";
 import "./general.css";
 import "./Experience.css";
@@ -53,40 +54,57 @@ class Experience extends Component {
             dot={
               <img
                 style={{ width: "50px", height: "50px" }}
-                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                src={`${HOSTNAME}${exper.image}`}
               />
             }
-            style={{ width: "40rem" }}
           >
             <Row
               type="flex"
               style={{ flexDirection: rightToLeftSupport.flexDirection }}
             >
-              <Col span={6} style={rightToLeftSupport.headMargin}>
-                {exper.company_name}
+              <Col span={12}>
+                <h3>
+                  {general_texts.companyName} :{" "}
+                  <span>{exper.company_name}</span>
+                </h3>
               </Col>
-              <Col span={5}>
-                <p>
-                  <span>{general_texts.from}:</span> {exper.work_from}
-                </p>
+            </Row>
+            <Row
+              type="flex"
+              style={{ flexDirection: rightToLeftSupport.flexDirection }}
+            >
+              <Col span={3} style={{ direction: rightToLeftSupport.direction }}>
+                <h3>{general_texts.website} :</h3>
               </Col>
-              <Col span={5}>
-                <p>
-                  <span>{general_texts.to}:</span> {exper.work_to}
-                </p>
+              <Col>
+                <span>
+                  <a href={exper.website}>{exper.website}</a>
+                </span>
               </Col>
-
-              <Col span={6} style={{ textAlign: "center" }}>
-                <a href={exper.website}>{exper.website}</a>
+            </Row>
+            <Row
+              type="flex"
+              style={{ flexDirection: rightToLeftSupport.flexDirection }}
+            >
+              <Col span={12}>
+                <h3>
+                  {general_texts.from} :<span>{exper.work_from}</span>
+                </h3>
+              </Col>
+              <Col span={12}>
+                <h3>
+                  {general_texts.to} : <span>{exper.work_to}</span>
+                </h3>
               </Col>
             </Row>
             {exper.about_company ? (
               <Row>
                 <Col
                   style={{
-                    marginLeft: "1rem",
                     textAlign: "justify",
-                    direction: rightToLeftSupport.direction
+                    direction: rightToLeftSupport.direction,
+                    marginTop: "20px",
+                    ...rightToLeftSupport.headMargin
                   }}
                 >
                   {ReactHtmlParser(exper.about_company)}
@@ -98,14 +116,15 @@ class Experience extends Component {
               <Row>
                 <Col
                   style={{
-                    marginLeft: "1rem",
                     textAlign: "justify",
-                    direction: rightToLeftSupport.direction
+                    direction: rightToLeftSupport.direction,
+                    marginTop: "20px",
+                    ...rightToLeftSupport.headMargin
                   }}
                 >
-                  <h3 style={{ fontWeight: "bold" }}>
+                  <h4 style={{ fontWeight: "bold" }}>
                     {general_texts.duties} :
-                  </h3>
+                  </h4>
                   {ReactHtmlParser(exper.duties_and_achivements)}
                 </Col>
               </Row>
@@ -116,10 +135,13 @@ class Experience extends Component {
     );
 
     return (
-      <div>
+      <React.Fragment>
         {this.props.resumes[0] ? (
           <div id="Experiences" style={{ direction: "ltr" }}>
-            <Timeline mode={rightToLeftSupport.mode}>
+            <Timeline
+              mode={rightToLeftSupport.mode}
+              style={{ width: "60rem", margin: "auto 40px" }}
+            >
               {timeLineItems}
               {timeLineItems}
               {timeLineItems}
@@ -134,7 +156,7 @@ class Experience extends Component {
             <p>No Content</p>
           </div>
         )}
-      </div>
+      </React.Fragment>
     );
   }
 }
@@ -156,8 +178,5 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Experience)
+  connect(mapStateToProps, mapDispatchToProps)(Experience)
 );

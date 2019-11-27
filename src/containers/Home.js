@@ -58,7 +58,7 @@ class HomepageLayout extends Component {
             />
           </Col>
         </Row>
-        <Row style={{ height: "100vh" }}>
+        <Row>
           <Col span={24}>
             <div className="main">
               <div className="box">
@@ -92,8 +92,5 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(HomepageLayout)
+  connect(mapStateToProps, mapDispatchToProps)(HomepageLayout)
 );

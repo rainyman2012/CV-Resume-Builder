@@ -36,10 +36,14 @@ class StaticSide extends Component {
     }
     return (
       <div id="staticSide" style={sideDir}>
-        <div className={`github ${githubBannerPosition}`}>
-          <i class="fab fa-github"></i>
-        </div>
-
+        <a
+          href="https://github.com/rainyman2012/CV-Resume-Builder"
+          className="custom-link-color"
+        >
+          <div className={`github ${githubBannerPosition}`}>
+            <i class="fab fa-github"></i>
+          </div>
+        </a>
         <StaticMenu menuStyle={{ marginTop: "80px" }} />
       </div>
     );
@@ -60,8 +64,5 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(StaticSide)
+  connect(mapStateToProps, mapDispatchToProps)(StaticSide)
 );

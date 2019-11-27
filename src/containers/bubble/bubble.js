@@ -10,10 +10,10 @@ const scrollingSpeed = 0.3;
 const noise_speedx = 0.003;
 const noise_speedy = 0.003;
 const noise_amnt = 20;
-const initWidth = 1000;
+const initWidth = 1200;
 const dx = 80; // if you want to bubbles get closer in x axis you must change dx.
 const dy = 70; // if you want to bubbles get closer in y axis you must change dy.
-const bubbleDiameter = 150 - 10;
+const bubbleDiameter = 150 - 0;
 const colors = [
   "BurlyWood",
   "CadetBlue",
@@ -174,10 +174,12 @@ class Bubble {
   remove() {
     this.parrent.removeChild(this.el);
   }
+
   recalculate(width, direction, display, setting) {
     var relativeParentWidth =
       this.parrent.offsetWidth > width ? width : this.parrent.offsetWidth;
-    this.x = Math.floor(setting.x * (relativeParentWidth / width));
+    this.x = Math.floor(setting.x);
+    this.x -= bubbleDiameter;
     this.scale = setting.s * (relativeParentWidth / width);
 
     if (DEBUG) {
@@ -286,7 +288,8 @@ class BubbleHeader extends Component {
         },
         bubbleDiameter: bubbleDiameter * (relativeParentWidth / initWidth),
         s: scale, // Scales will selet based on skill point
-        x: dx * index,
+        // x: this.getRandomInt(0, initWidth),
+        x: (dx * index) % relativeParentWidth,
         y: this.getRandomInt(0, dy)
       };
 

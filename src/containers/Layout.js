@@ -11,7 +11,33 @@ import "./layout.css";
 import MusicPlayer from "./player";
 
 const { Content, Footer } = Layout;
+let persianPlayList = [
+  {
+    name: "Dorost Nemisham",
+    singer: "Sirvan Khosravi",
+    cover:
+      "https://rozmusic.com/wp-content/uploads/2019/05/Sirvan-Khosravi-Dorost-Nemisham.jpg",
+    musicSrc: () => {
+      return Promise.resolve(
+        "https://res.cloudinary.com/ehsanahmadi/video/upload/v1573550770/Sirvan-Khosravi-Dorost-Nemisham-128_kb8urq.mp3"
+      );
+    }
+  }
+];
 
+let englishPlayList = [
+  {
+    name: "bruno mars",
+    singer: "Just The Way You Are ",
+    cover:
+      "https://www.washingtonian.com/wp-content/uploads/2017/12/WW.bruno_.jpg",
+    musicSrc: () => {
+      return Promise.resolve(
+        "https://res.cloudinary.com/ehsanahmadi/video/upload/v1573902509/Bruno_Mars_-_Just_The_Way_You_Are_amjqv8.mp3"
+      );
+    }
+  }
+];
 class CustomLayout extends React.Component {
   state = {
     background_color: "#c64b76",
@@ -105,7 +131,8 @@ class CustomLayout extends React.Component {
       <Layout
         style={{
           background: "-webkit-radial-gradient(#205983, #0A2742)",
-          background: "radial-gradient(#205983, #0A2742)"
+          background: "radial-gradient(#205983, #0A2742)",
+          minHeight: "100vh"
         }}
       >
         <DrawerSide
@@ -117,18 +144,27 @@ class CustomLayout extends React.Component {
         <StaticSide />
         <Layout className={`custom-main ${layoutPositionClass}`}>
           <Content className="content_basic">{this.props.children}</Content>
-          <Footer
+          <div
             className="custom-footer"
             style={{
-              height: "75px",
+              backgroundColor: "transparent",
+              height: "20px",
               textAlign: "center",
               fontFamily: "sans-serif"
             }}
           >
-            CopyRight© 2019 Created by Revenger
-          </Footer>
+            <p className="footer-text">
+              CopyRight© 2019 Created by Ehsan Ahmadi
+            </p>
+          </div>
         </Layout>
-        <MusicPlayer language={this.props.language} />
+
+        <MusicPlayer
+          audioList={
+            this.props.language == "fa" ? persianPlayList : englishPlayList
+          }
+          language={this.props.language}
+        />
       </Layout>
     );
   }
@@ -149,8 +185,5 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(CustomLayout)
+  connect(mapStateToProps, mapDispatchToProps)(CustomLayout)
 );

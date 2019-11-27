@@ -1,25 +1,7 @@
-.devils {
-    width: 120px;
-    height: 200px
-}
-
 .header {
     margin-bottom: 0.5rem;
     height: 10rem;
     width: 100%;
-}
-
-.main .box {
-    width: 98%;
-    margin-top: 3rem;
-    margin: auto;
-    margin-top: 50px;
-}
-
-.main h3 {
-    font-size: 1.5rem;
-    background-color: rgb(21, 133, 30);
-    border-radius: 10px;
 }
 
 .main .center_header {

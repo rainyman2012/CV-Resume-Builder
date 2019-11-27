@@ -3,7 +3,7 @@ import { updateObject } from "../utility";
 
 const initialState = {
   color: "white",
-  language: "fa",
+  language: "en",
   resumes: null,
   error: "",
   loading: false,

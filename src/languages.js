@@ -23,12 +23,14 @@ const Lang = {
       "بی تجربه",
       "آشنایی اولیه",
       "استفاده در چند پروژه",
-      "مهارت داشتن",
+      "ماهر",
       "حرفه‌ای"
     ],
     from: "از",
     to: "تا",
-    duties: "وظایف و دستاوردها"
+    duties: "وظایف و دستاوردها",
+    website: "سایت",
+    companyName: " نام شرکت"
   },
 
   en: {
@@ -56,7 +58,9 @@ const Lang = {
       this is your survey?",
     logoText: "web developer",
     from: "From",
-    to: "To"
+    to: "To",
+    website: "Website",
+    companyName: " Company Name"
   }
 };
 

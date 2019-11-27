@@ -1,3 +1,5 @@
-const Hoc = props => props.children;
+const Hoc = props => {
+  return props.children;
+};
 
 export default Hoc;

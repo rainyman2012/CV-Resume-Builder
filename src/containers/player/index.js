@@ -1,13 +1,40 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import ReactJkMusicPlayer from "react-jinke-music-player";
+import { Button } from "antd";
+import ReactJkMusicPlayer from "../../vendor/react-jinke-music-player/lib";
 // import swal from "sweetalert";
 import FaHeadphones from "react-icons/lib/fa/headphones";
 import Switch from "rc-switch";
-import "react-jinke-music-player/assets/index.css";
+import "../../vendor/react-jinke-music-player/assets/index.css";
 import { createRandomNum } from "./utils";
 import "./index.less";
+let persianPlayList = [
+  {
+    name: "Dorost Nemisham",
+    singer: "Sirvan Khosravi",
+    cover:
+      "https://rozmusic.com/wp-content/uploads/2019/05/Sirvan-Khosravi-Dorost-Nemisham.jpg",
+    musicSrc: () => {
+      return Promise.resolve(
+        "https://res.cloudinary.com/ehsanahmadi/video/upload/v1573550770/Sirvan-Khosravi-Dorost-Nemisham-128_kb8urq.mp3"
+      );
+    }
+  }
+];
 
+let englishPlayList = [
+  {
+    name: "bruno mars",
+    singer: "Just The Way You Are ",
+    cover:
+      "https://www.washingtonian.com/wp-content/uploads/2017/12/WW.bruno_.jpg",
+    musicSrc: () => {
+      return Promise.resolve(
+        "https://res.cloudinary.com/ehsanahmadi/video/upload/v1573902509/Bruno_Mars_-_Just_The_Way_You_Are_amjqv8.mp3"
+      );
+    }
+  }
+];
 // const lyric = [
 //   "[05:16.65]母带工程师：Friedemann Tishmeyer@Hambug Studio"
 // ].join("\n");
@@ -16,19 +43,7 @@ import "./index.less";
 
 const options = {
   //audio lists model
-  audioLists: [
-    {
-      name: "Dorost Nemisham",
-      singer: "Sirvan Khosravi",
-      cover:
-        "https://rozmusic.com/wp-content/uploads/2019/05/Sirvan-Khosravi-Dorost-Nemisham.jpg",
-      musicSrc: () => {
-        return Promise.resolve(
-          "https://res.cloudinary.com/ehsanahmadi/video/upload/v1573550770/Sirvan-Khosravi-Dorost-Nemisham-128_kb8urq.mp3"
-        );
-      }
-    }
-  ],
+  audioLists: [],
 
   //default play index of the audio player  [type `number` default `0`]
   defaultPlayIndex: 0,
@@ -59,7 +74,7 @@ const options = {
   remember: false,
 
   //The Audio Can be deleted  [type `Boolean`, default `true`]
-  remove: false,
+  remove: true,
 
   //audio controller initial position    [ type `Object` default '{top:0,left:0}' ]
 
@@ -105,6 +120,10 @@ const options = {
   //Whether you can switch between two modes, full => mini  or mini => full   [type 'Boolean' default 'true']
   toggleMode: true,
 
+  // If you want to replace a new playlist with the first loaded playlist
+  // instead of adding it at the end of it. You must set this variable to true
+  // [type `boolean`, default `false`]
+  clearPriorAudioLists: false,
   //audio cover is show of the "mini" mode [type `Boolean` default 'true']
   showMiniModeCover: true,
 
@@ -263,20 +282,48 @@ class MusicPlayer extends React.PureComponent {
     super(props);
   }
   state = {
-    params: options
+    params: options,
+    isPersian: false
   };
-  onAddAudio = () => {
+
+  UNSAFE_componentWillUpdate(nextProps, nextState) {
+    if (this.props.audioList !== nextProps.audioList) {
+      this.changeAudioList(nextProps.audioList);
+    }
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.state.params !== nextState.params;
+  }
+
+  onChangeAudio = () => {
     const data = {
       ...this.state.params,
-      audioLists: [
-        ...this.state.params.audioLists,
-        {
-          name: "I'm new here",
-          singer: "jack",
-          cover: "http://www.lijinke.cn/music/1387583682387727.jpg",
-          musicSrc: `http://www.lijinke.cn/music/${Date.now()}.mp3`
-        }
-      ]
+      clearPriorAudioLists: true,
+      audioLists: this.props.audioList
+    };
+    this.setState({
+      params: data,
+      isPersian: !this.state.isPersian
+    });
+  };
+
+  onRemoveAudio = () => {
+    var element = document.getElementById("MyPlayer");
+    element.deleteAudioLists();
+    const data = {
+      ...this.state.params,
+      audioLists: []
+    };
+    this.setState({
+      params: data
+    });
+  };
+  changeAudioList = AudioList => {
+    const data = {
+      ...this.state.params,
+      clearPriorAudioLists: true,
+      audioLists: AudioList
     };
     this.setState({
       params: data
@@ -344,24 +391,33 @@ class MusicPlayer extends React.PureComponent {
       params: data
     });
   };
+
+  componentWillReceiveProps({ audioList }) {
+    this.changeAudioList(audioList);
+  }
+  componentWillMount() {
+    this.state.params.audioLists = this.props.audioList;
+  }
   render() {
     const { params } = this.state;
     let defaultPosition = {
       top: "80%",
       left: 50
     };
-
     if (this.props.language == "en") {
       defaultPosition = {
         top: "80%",
         right: 50
       };
     }
-
     params.defaultPosition = defaultPosition;
 
     console.log("params: ", params);
-    return <ReactJkMusicPlayer {...params} />;
+    return (
+      <React.Fragment>
+        <ReactJkMusicPlayer {...params} />
+      </React.Fragment>
+    );
   }
 }
 

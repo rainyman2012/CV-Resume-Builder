@@ -86,3 +86,13 @@
         border: .5rem solid rgba(255, 255, 255, .2);
     }
 }
+
+.custom-link-color {
+    color: black;
+    outline: none;
+}
+
+.custom-link-color:hover {
+    color: #0A483A;
+    outline: none;
+}

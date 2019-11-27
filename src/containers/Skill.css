@@ -1,7 +1,5 @@
-#skills {
-    display: flex;
+#Skills {
     justify-content: center;
-    flex-direction: column;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 6rem;
 }

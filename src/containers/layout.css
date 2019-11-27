@@ -2,6 +2,13 @@
     margin-right: 0px;
 }
 
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
 p.lead {
     font-size: 1.15rem;
     font-weight: 400;
@@ -10,19 +17,50 @@ p.lead {
 .subheading {
     text-transform: uppercase;
     font-weight: 500;
-    font-family: 'Saira Extra Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    font-family: "Saira Extra Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: 1.5rem;
 }
 
+.content_basic p,
+.content_basic span {
+    color: #fded6c;
+}
+
 .content_basic {
-    height: 100%;
+    min-height: 100%;
+}
+
+.content_basic h1,
+.content_basic h2,
+.content_basic h3,
+.content_basic h4,
+.content_basic h5,
+.content_basic h6 {
+    color: #38f281;
+}
+
+.content_basic .box {
+    width: 98%;
+    margin-top: 3rem;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.content_basic .box h3 {
+    font-size: 1.5rem;
+    background-color: #21792a;
+    border-radius: 10px;
 }
 
 .ant-timeline-item-head-custom {
     background-color: transparent;
 }
 
-@media(min-width: 768px) {
+.ant-timeline-item {
+    padding: 0 20px 40px;
+}
+
+@media (min-width: 768px) {
     .side-rtl {
         margin-right: 17rem;
     }
@@ -32,17 +70,27 @@ p.lead {
 }
 
 .custom-footer {
-    background: rgb(10, 50, 72);
-    background: -moz-linear-gradient(0deg, rgba(10, 50, 72, 1) 69%, rgba(56, 94, 45, 0) 70%);
-    background: -webkit-linear-gradient(0deg, rgba(10, 50, 72, 1) 69%, rgba(56, 94, 45, 0) 70%);
-    background: linear-gradient(0deg, rgba(10, 50, 72, 1) 69%, rgba(56, 94, 45, 0) 70%);
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#0a3248", endColorstr="#385e2d", GradientType=1);
+    background: rgb(28, 65, 21);
+    background: -moz-radial-gradient( circle, rgba(28, 65, 21, 1) 0%, rgba(10, 83, 83, 1) 100%);
+    background: -webkit-radial-gradient( circle, rgba(28, 65, 21, 1) 0%, rgba(10, 83, 83, 1) 100%);
+    background: radial-gradient( circle, rgba(28, 65, 21, 1) 0%, rgba(10, 83, 83, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#1c4115", endColorstr="#0a5353", GradientType=1);
+    min-height: 25px;
+}
+
+.custom-footer .footer-text {
+    position: relative;
+    margin: 0;
 }
 
 .custom-main {
     background: rgb(28, 65, 21);
-    background: -moz-radial-gradient(circle, rgba(28, 65, 21, 1) 0%, rgba(10, 83, 83, 1) 100%);
-    background: -webkit-radial-gradient(circle, rgba(28, 65, 21, 1) 0%, rgba(10, 83, 83, 1) 100%);
-    background: radial-gradient(circle, rgba(28, 65, 21, 1) 0%, rgba(10, 83, 83, 1) 100%);
+    background: -moz-radial-gradient( circle, rgba(28, 65, 21, 1) 0%, rgba(10, 83, 83, 1) 100%);
+    background: -webkit-radial-gradient( circle, rgba(28, 65, 21, 1) 0%, rgba(10, 83, 83, 1) 100%);
+    background: radial-gradient( circle, rgba(28, 65, 21, 1) 0%, rgba(10, 83, 83, 1) 100%);
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#1c4115", endColorstr="#0a5353", GradientType=1);
+}
+
+.react-jinke-music-player-main .music-player-panel {
+    direction: ltr;
 }

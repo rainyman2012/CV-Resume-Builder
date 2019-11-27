@@ -34,7 +34,7 @@ class Album extends Component {
       };
     }
     return (
-      <Row style={{ height: "100vh" }}>
+      <Row>
         <Col>
           <div className="album">
             <h3 className="center_header">
@@ -62,9 +62,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Album)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Album));
