@@ -267,7 +267,7 @@ class BubbleHeader extends Component {
 
       if (element.image) {
         dynamicbackground = {
-          backgroundImage: `url("http://192.168.25.128:8000${element.image}")`
+          backgroundImage: `url("${HOSTNAME}${element.image}")`
         };
       } else {
         dynamicbackground = {
