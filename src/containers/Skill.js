@@ -31,13 +31,10 @@ class Skill extends Component {
     const rate = this.props.resumes[0].skills.map((skill, index) => {
       return (
         <Row type="flex" justify="center">
-          <Col span={6}>
-            <span style={{ margin: "1rem" }}>{skill.name}</span>
+          <Col span={12} style={{ textAlign: "left" }}>
+            <span style={{ margin: "0" }}>{skill.name}</span>
           </Col>
-          <Col span={6}>
-            <span>{general_texts.rate[skill.point - 1]}</span>
-          </Col>
-          <Col span={6}>
+          <Col>
             <Rate disabled={true} value={skill.point} />
           </Col>
         </Row>

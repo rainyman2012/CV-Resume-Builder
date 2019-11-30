@@ -62,9 +62,9 @@ class Experience extends Component {
               type="flex"
               style={{ flexDirection: rightToLeftSupport.flexDirection }}
             >
-              <Col span={12}>
+              <Col>
                 <h3>
-                  {general_texts.companyName} :{" "}
+                  {`${general_texts.companyName}: `}
                   <span>{exper.company_name}</span>
                 </h3>
               </Col>
@@ -73,13 +73,13 @@ class Experience extends Component {
               type="flex"
               style={{ flexDirection: rightToLeftSupport.flexDirection }}
             >
-              <Col span={3} style={{ direction: rightToLeftSupport.direction }}>
-                <h3>{general_texts.website} :</h3>
-              </Col>
-              <Col>
-                <span>
-                  <a href={exper.website}>{exper.website}</a>
-                </span>
+              <Col style={{ direction: rightToLeftSupport.direction }}>
+                <h3>
+                  {`${general_texts.website}: `}
+                  <span>
+                    <a href={exper.website}>{exper.website}</a>
+                  </span>
+                </h3>
               </Col>
             </Row>
             <Row
@@ -140,7 +140,7 @@ class Experience extends Component {
           <div id="Experiences" style={{ direction: "ltr" }}>
             <Timeline
               mode={rightToLeftSupport.mode}
-              style={{ width: "60rem", margin: "auto 40px" }}
+              style={{ width: "50rem", margin: "auto 20px" }}
             >
               {timeLineItems}
               {timeLineItems}
