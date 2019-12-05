@@ -143,12 +143,6 @@ class Experience extends Component {
               style={{ width: "50rem", margin: "auto 20px" }}
             >
               {timeLineItems}
-              {timeLineItems}
-              {timeLineItems}
-              {timeLineItems}
-              {timeLineItems}
-              {timeLineItems}
-              {timeLineItems}
             </Timeline>
           </div>
         ) : (

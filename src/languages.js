@@ -30,7 +30,9 @@ const Lang = {
     to: "تا",
     duties: "وظایف و دستاوردها",
     website: "سایت",
-    companyName: " نام شرکت"
+    companyName: " نام شرکت",
+    grade: "Grade",
+    major: "Major"
   },
 
   en: {
@@ -60,7 +62,9 @@ const Lang = {
     from: "From",
     to: "To",
     website: "Website",
-    companyName: " Company Name"
+    companyName: " Company Name",
+    grade: "Grade",
+    major: "Major"
   }
 };
 

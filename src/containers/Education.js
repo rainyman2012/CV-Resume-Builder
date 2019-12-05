@@ -57,9 +57,11 @@ class Education extends Component {
               style={{ flexDirection: rightToLeftSupport.flexDirection }}
             >
               <Col span={6} style={rightToLeftSupport.margin}>
+                <span>{general_texts.grade}: </span>
                 {exper.grade}
               </Col>
               <Col span={6} style={{ textAlign: "center" }}>
+                <span>{general_texts.major}: </span>
                 {exper.major}
               </Col>
               <Col span={10} style={{ textAlign: "center" }}>
@@ -96,8 +98,6 @@ class Education extends Component {
               mode={rightToLeftSupport.mode}
               style={{ width: "40rem", margin: "auto 40px" }}
             >
-              {timeLineItems}
-              {timeLineItems}
               {timeLineItems}
             </Timeline>
           </div>
