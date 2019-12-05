@@ -66,7 +66,9 @@ class HomepageLayout extends Component {
                   {this.props.resumes[0].user.profile.first_name}{" "}
                   {this.props.resumes[0].user.profile.last_name}
                 </h3>
-                <p>{ReactHtmlParser(this.props.resumes[0].introduce)}</p>
+                <p style={{ margin: "0px 5px" }}>
+                  {ReactHtmlParser(this.props.resumes[0].introduce)}
+                </p>
               </div>
             </div>
           </Col>

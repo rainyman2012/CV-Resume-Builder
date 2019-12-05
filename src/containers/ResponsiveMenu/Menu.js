@@ -31,6 +31,8 @@ const StaticMenu = ({
     return `${resumes[0].user.profile.first_name} ${resumes[0].user.profile.last_name}`;
   }
   let rightToLeftSupport = {
+    resumeDonwloadLink:
+      "https://res.cloudinary.com/ehsanahmadi/image/upload/v1575542074/EhsanAhmadiPersian_nvde0y.pdf",
     flexDirection: "row-reverse",
     direction: "rtl",
     mode: "right",
@@ -55,10 +57,12 @@ const StaticMenu = ({
     htmlElement.dir = "rtl";
   } else {
     rightToLeftSupport = {
+      resumeDonwloadLink:
+        "https://res.cloudinary.com/ehsanahmadi/image/upload/v1575542066/EhsanAhmadiEnglish_xq9i3w.pdf",
       flexDirection: "row",
       direction: "ltr",
       mode: "left",
-      DynamicMenuItemWidth: "100px",
+      DynamicMenuItemWidth: "150px",
 
       DynamicMenuItemAlignment: {
         textAlign: "left"
@@ -194,7 +198,11 @@ const StaticMenu = ({
         className="item"
         style={{ textAlign: "center" }}
       >
-        <Link to="/album">
+        <a
+          href={rightToLeftSupport.resumeDonwloadLink}
+          target="_blank"
+          download
+        >
           <div
             style={{
               width: rightToLeftSupport.DynamicMenuItemWidth,
@@ -205,7 +213,7 @@ const StaticMenu = ({
             <i class="fas fa-female" style={{ margin: "5px" }}></i>
             <span className="nav-text"> {general_texts.menu.page5} </span>
           </div>
-        </Link>
+        </a>
       </Menu.Item>
 
       <div
@@ -277,8 +285,5 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(StaticMenu)
+  connect(mapStateToProps, mapDispatchToProps)(StaticMenu)
 );

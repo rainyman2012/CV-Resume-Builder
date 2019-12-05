@@ -5,7 +5,7 @@ const Lang = {
       page2: "مهارت ها",
       page3: "شرکت‌ها",
       page4: "تحصیلات",
-      page5: "گالری"
+      page5: "دانلود رزومه"
     },
     languageName: "فارسی",
     selectLanguage: "زبان خود را انتخاب کنید",
@@ -40,7 +40,7 @@ const Lang = {
       page2: "Skills",
       page3: "Companies",
       page4: "Educations",
-      page5: "Gallery"
+      page5: "Download Resume"
     },
     rate: ["terrible", "bad", "normal", "good", "wonderful"],
     languageName: "English",

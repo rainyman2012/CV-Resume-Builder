@@ -88,7 +88,7 @@ class Experience extends Component {
             >
               <Col span={12}>
                 <h3>
-                  {general_texts.from} :<span>{exper.work_from}</span>
+                  {general_texts.from} : <span>{exper.work_from}</span>
                 </h3>
               </Col>
               <Col span={12}>
